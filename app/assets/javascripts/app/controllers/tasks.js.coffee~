@@ -1,0 +1,32 @@
+class App.Tasks extends Spine.Controller
+  elements:
+    ".items": "items"
+
+  constructor: ->
+    super
+    Task.bind("create",  @addOne)
+    Task.bind("refresh", @addAll)
+    Task.fetch()
+
+  addOne: (task) =>
+    view = new TaskItem(task: task)
+    @items.append(view.render().el)
+
+  addAll: =>
+    Task.each(@addOne)
+    
+class App.TaskItem extends Spine.Controller
+  constructor: ->
+    super
+    @task.bind("update",  @render)
+    @task.bind("destroy", @remove)
+
+  render: =>
+    @replace @view("tasks/task")(@task)
+    @
+
+  remove: =>
+    @el.remove()
+    
+    
+

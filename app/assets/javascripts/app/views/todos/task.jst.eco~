@@ -1,0 +1,6 @@
+<div class="task" >
+  <div class="view" title="Double click to edit...">
+    <input type="checkbox"> 
+    <span><%= @task.name %></span> <a class="destroy"></a>
+  </div>
+</div>
