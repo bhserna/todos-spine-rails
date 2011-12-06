@@ -1,1 +1,1 @@
-The classic Todos app using Rails
+The classic Todos app using spine.js and Rails
